@@ -1,0 +1,24 @@
+<ion-header class="ion-no-border header-container">
+    <ion-toolbar>
+        <!-- Logotipo mejorado -->
+        <div slot="start" class="brand-logo">
+            <img src="assets/images/logo.svg" alt="Logotipo de la empresa" class="logo-icon" />
+            <span class="logo-text">Cortinas<strong class="text-primary">Pro</strong></span>
+        </div>
+
+        <!-- Menú de Navegación principal (Desktop) -->
+        <nav slot="end" class="main-nav" aria-label="Navegación principal">
+            <ion-button fill="clear" class="nav-link" href="#inicio">Inicio</ion-button>
+            <ion-button fill="clear" class="nav-link" href="#catalogo">Catálogo</ion-button>
+            <ion-button fill="clear" class="nav-link" href="#proyectos">Proyectos</ion-button>
+            <ion-button fill="solid" color="primary" shape="round" class="btn-quote" href="#contacto">
+                Cotizar
+            </ion-button>
+        </nav>
+
+        <!-- Botón de menú hamburguesa (Móvil) -->
+        <ion-buttons slot="end" class="mobile-menu-btn">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>

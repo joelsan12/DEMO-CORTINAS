@@ -1,0 +1,183 @@
+:host {
+  display: block;
+}
+
+.section {
+  padding: clamp(70px, 10vw, 124px) clamp(18px, 4vw, 56px);
+}
+
+.quote-section {
+  background: #ffffff;
+}
+
+.section-heading {
+  width: min(760px, 100%);
+  margin: 0 auto 22px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--demo-gold);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: var(--demo-ink);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.02;
+}
+
+.wizard {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  width: min(1080px, 100%);
+  margin: 0 auto;
+}
+
+.wizard-step {
+  min-height: 244px;
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid var(--demo-line);
+  border-radius: 8px;
+  background: var(--demo-paper);
+}
+
+.step-number {
+  display: inline-flex;
+  margin-bottom: 18px;
+  color: var(--demo-gold-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.wizard-step h3 {
+  margin: 0;
+  color: var(--demo-ink);
+  font-size: 1.25rem;
+}
+
+.option-grid,
+.measure-grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.option-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.choice {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  min-height: 104px;
+  padding: 14px 10px;
+  border: 1px solid var(--demo-line);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--demo-muted);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition: border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
+}
+
+.choice ion-icon {
+  color: var(--demo-gold-dark);
+  font-size: 1.65rem;
+}
+
+.choice.active {
+  border-color: var(--demo-ink);
+  color: var(--demo-ink);
+  box-shadow: 0 12px 34px rgba(23, 22, 20, 0.1);
+}
+
+.measure-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+ion-item {
+  --background: #ffffff;
+  --border-radius: 8px;
+  --padding-start: 16px;
+  --inner-padding-end: 16px;
+  border: 1px solid var(--demo-line);
+  border-radius: 8px;
+}
+
+ion-input {
+  --color: var(--demo-ink);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.final-step {
+  background: var(--demo-ink);
+  color: #ffffff;
+}
+
+.final-step h3 {
+  color: #ffffff;
+}
+
+.lead-preview {
+  min-height: 92px;
+  margin: 18px 0 20px;
+  color: rgba(255, 255, 255, 0.74);
+  line-height: 1.58;
+}
+
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: #25d366;
+  color: #112218;
+  font-weight: 900;
+  text-decoration: none;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.whatsapp-button:hover {
+  background: #1ebc58;
+  transform: translateY(-1px);
+}
+
+.whatsapp-button ion-icon {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 820px) {
+  .wizard,
+  .option-grid,
+  .measure-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .choice {
+    grid-template-columns: auto 1fr;
+    place-items: center start;
+    min-height: 72px;
+    padding-inline: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding-inline: 14px;
+  }
+}

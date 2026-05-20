@@ -1,0 +1,7 @@
+{
+  "name": "demo-cortinas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

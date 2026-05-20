@@ -1,0 +1,23 @@
+<ion-content [fullscreen]="true">
+  <app-hero-section
+    [brandName]="config.brandName"
+    [heroImage]="config.heroImage"
+    (catalogRequested)="scrollToCatalog()"
+    (quoteRequested)="scrollToQuote()"
+  ></app-hero-section>
+
+  <main>
+    <app-catalog-section [catalog]="catalog" (productSelected)="selectProduct($event)"></app-catalog-section>
+    <app-quote-wizard
+      [whatsappNumber]="config.whatsappNumber"
+      [curtainTypes]="curtainTypes"
+      [environments]="environments"
+      [selectedType]="selectedQuote.type"
+      [selectedProduct]="selectedQuote.product"
+    ></app-quote-wizard>
+    <app-projects-comparison
+      [beforeImage]="config.beforeProjectImage"
+      [afterImage]="config.afterProjectImage"
+    ></app-projects-comparison>
+  </main>
+</ion-content>

@@ -1,0 +1,138 @@
+:host {
+  display: block;
+}
+
+.section {
+  padding: clamp(70px, 10vw, 124px) clamp(18px, 4vw, 56px);
+}
+
+.projects-section {
+  background: var(--demo-soft);
+}
+
+.section-heading {
+  width: min(760px, 100%);
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--demo-gold);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: var(--demo-ink);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.02;
+}
+
+.section-heading p:not(.eyebrow) {
+  max-width: 620px;
+  margin: 18px auto 0;
+  color: var(--demo-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.comparison-shell {
+  width: min(1040px, 100%);
+  margin: 0 auto;
+}
+
+.comparison {
+  --split: 54%;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  background: #dddddd;
+  box-shadow: 0 24px 70px rgba(23, 22, 20, 0.14);
+}
+
+.comparison-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.after-layer {
+  position: absolute;
+  inset: 0;
+  width: var(--split);
+  overflow: hidden;
+}
+
+.after-layer img {
+  width: calc(100% * 100 / var(--split));
+  max-width: none;
+}
+
+.divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--split);
+  width: 2px;
+  background: #ffffff;
+  transform: translateX(-1px);
+}
+
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 42px;
+  height: 42px;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  background: rgba(23, 22, 20, 0.5);
+  transform: translate(-50%, -50%);
+}
+
+.badge {
+  position: absolute;
+  top: 18px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--demo-ink);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.badge.before {
+  right: 18px;
+}
+
+.badge.after {
+  left: 18px;
+}
+
+ion-range {
+  --bar-background: #d9d1c4;
+  --bar-background-active: var(--demo-gold);
+  --knob-background: var(--demo-ink);
+  margin-top: 18px;
+}
+
+@media (max-width: 820px) {
+  .comparison {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding-inline: 14px;
+  }
+}

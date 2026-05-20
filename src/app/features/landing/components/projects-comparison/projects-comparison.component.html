@@ -1,0 +1,20 @@
+<section id="proyectos" class="section projects-section">
+  <div class="section-heading">
+    <p class="eyebrow">Proyectos realizados</p>
+    <h2>Antes y despues que vende transformacion.</h2>
+    <p>Un comparador visual ayuda a mostrar el cambio de luz, privacidad y terminacion en segundos.</p>
+  </div>
+
+  <div class="comparison-shell">
+    <div class="comparison" [style.--split.%]="comparison">
+      <img class="comparison-image" [src]="beforeImage" alt="Ventana antes de instalar cortinas" loading="lazy" />
+      <div class="after-layer">
+        <img class="comparison-image" [src]="afterImage" alt="Ambiente con cortinas instaladas" loading="lazy" />
+      </div>
+      <div class="divider" aria-hidden="true"></div>
+      <span class="badge before">Antes</span>
+      <span class="badge after">Despues</span>
+    </div>
+    <ion-range min="8" max="92" [(ngModel)]="comparison" aria-label="Comparar antes y despues"></ion-range>
+  </div>
+</section>
