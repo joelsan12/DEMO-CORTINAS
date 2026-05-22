@@ -2,68 +2,102 @@
   display: block;
 }
 
+/* ── Section wrapper ─────────────────────────────────────── */
 .section {
-  padding: clamp(70px, 10vw, 124px) clamp(18px, 4vw, 56px);
+  padding: clamp(80px, 10vw, 128px) clamp(18px, 4vw, 56px);
 }
 
 .quote-section {
-  background: #ffffff;
+  background: linear-gradient(180deg, #ffffff 0%, var(--demo-cream) 100%);
 }
 
+/* ── Heading ─────────────────────────────────────────────── */
 .section-heading {
-  width: min(760px, 100%);
-  margin: 0 auto 22px;
+  width: min(720px, 100%);
+  margin: 0 auto 40px;
   text-align: center;
 }
 
 .eyebrow {
-  margin: 0 0 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
   color: var(--demo-gold);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+
+  &::before,
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--demo-gold);
+    opacity: 0.6;
+  }
 }
 
 .section-heading h2 {
   margin: 0;
   color: var(--demo-ink);
-  font-size: clamp(2rem, 4vw, 4rem);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.6rem);
   font-weight: 800;
-  letter-spacing: 0;
-  line-height: 1.02;
+  line-height: 1.08;
 }
 
+/* ── Wizard grid ─────────────────────────────────────────── */
 .wizard {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 18px;
   width: min(1080px, 100%);
   margin: 0 auto;
 }
 
+/* ── Step card ───────────────────────────────────────────── */
 .wizard-step {
   min-height: 244px;
-  padding: clamp(22px, 3vw, 34px);
+  padding: clamp(22px, 3vw, 36px);
   border: 1px solid var(--demo-line);
-  border-radius: 8px;
-  background: var(--demo-paper);
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow var(--t-mid);
+
+  &:hover {
+    box-shadow: var(--shadow-sm);
+  }
 }
 
+/* ── Step number (gold badge) ────────────────────────────── */
 .step-number {
   display: inline-flex;
-  margin-bottom: 18px;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: var(--demo-gold-pale);
   color: var(--demo-gold-dark);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 900;
+  letter-spacing: 0.05em;
 }
 
 .wizard-step h3 {
   margin: 0;
   color: var(--demo-ink);
-  font-size: 1.25rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
+/* ── Option grid ─────────────────────────────────────────── */
 .option-grid,
 .measure-grid {
   display: grid;
@@ -81,86 +115,124 @@
   gap: 10px;
   min-height: 104px;
   padding: 14px 10px;
-  border: 1px solid var(--demo-line);
-  border-radius: 8px;
-  background: #ffffff;
+  border: 1.5px solid var(--demo-line);
+  border-radius: 10px;
+  background: var(--demo-paper);
   color: var(--demo-muted);
   font: inherit;
-  font-weight: 800;
+  font-size: 0.84rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
+  transition: border-color var(--t-mid), box-shadow var(--t-mid), color var(--t-mid), background var(--t-mid);
+
+  ion-icon {
+    color: var(--demo-gold);
+    font-size: 1.7rem;
+    transition: transform var(--t-mid);
+  }
+
+  &:hover {
+    border-color: var(--demo-gold-pale);
+    background: #ffffff;
+    box-shadow: var(--shadow-sm);
+
+    ion-icon { transform: scale(1.1); }
+  }
+
+  &.active {
+    border-color: var(--demo-ink);
+    background: #ffffff;
+    color: var(--demo-ink);
+    box-shadow: 0 8px 24px rgba(26, 23, 20, 0.1);
+
+    ion-icon { color: var(--demo-gold-dark); }
+  }
 }
 
-.choice ion-icon {
-  color: var(--demo-gold-dark);
-  font-size: 1.65rem;
-}
-
-.choice.active {
-  border-color: var(--demo-ink);
-  color: var(--demo-ink);
-  box-shadow: 0 12px 34px rgba(23, 22, 20, 0.1);
-}
-
+/* ── Measure inputs ──────────────────────────────────────── */
 .measure-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 ion-item {
   --background: #ffffff;
-  --border-radius: 8px;
+  --border-radius: 10px;
   --padding-start: 16px;
   --inner-padding-end: 16px;
-  border: 1px solid var(--demo-line);
-  border-radius: 8px;
+  border: 1.5px solid var(--demo-line);
+  border-radius: 10px;
+  transition: border-color var(--t-fast);
+
+  &:focus-within { border-color: var(--demo-gold); }
 }
 
 ion-input {
   --color: var(--demo-ink);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 800;
 }
 
+/* ── Final step ──────────────────────────────────────────── */
 .final-step {
-  background: var(--demo-ink);
+  background: linear-gradient(135deg, var(--demo-ink) 0%, #2e2318 100%);
+  border-color: transparent;
   color: #ffffff;
+  box-shadow: var(--shadow-md);
 }
 
 .final-step h3 {
   color: #ffffff;
 }
 
-.lead-preview {
-  min-height: 92px;
-  margin: 18px 0 20px;
-  color: rgba(255, 255, 255, 0.74);
-  line-height: 1.58;
+.final-step .step-number {
+  background: rgba(196, 145, 58, 0.18);
+  color: var(--demo-gold-light);
 }
 
+.lead-preview {
+  min-height: 92px;
+  margin: 18px 0 24px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.94rem;
+  line-height: 1.62;
+  font-style: italic;
+  border-left: 2px solid rgba(196, 145, 58, 0.4);
+  padding-left: 14px;
+}
+
+/* ── WhatsApp CTA ────────────────────────────────────────── */
 .whatsapp-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   min-height: 52px;
-  padding: 0 24px;
+  padding: 0 26px;
   border-radius: 999px;
   background: #25d366;
-  color: #112218;
-  font-weight: 900;
+  color: #0d2b18;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  transition: background 180ms ease, transform 180ms ease;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.32);
+  transition: background var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
+
+  &:hover {
+    background: #1ebc58;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 26px rgba(37, 211, 102, 0.42);
+  }
+
+  ion-icon { font-size: 1.3rem; }
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 
-.whatsapp-button:hover {
-  background: #1ebc58;
-  transform: translateY(-1px);
-}
-
-.whatsapp-button ion-icon {
-  font-size: 1.25rem;
-}
-
+/* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 820px) {
   .wizard,
   .option-grid,
@@ -177,7 +249,5 @@ ion-input {
 }
 
 @media (max-width: 480px) {
-  .section {
-    padding-inline: 14px;
-  }
+  .section { padding-inline: 14px; }
 }

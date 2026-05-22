@@ -1,12 +1,12 @@
 <section
   id="inicio"
   class="hero"
-  [style.background-image]="'linear-gradient(90deg, rgba(18, 17, 15, 0.72), rgba(18, 17, 15, 0.28)), url(' + heroImage + ')'"
+  [style.background-image]="'url(' + heroImage + ')'"
 >
-  <nav class="topbar" aria-label="Navegacion principal">
+  <nav class="topbar" aria-label="Navegación principal">
     <a class="brand" href="#inicio" aria-label="Ir al inicio">{{ brandName }}</a>
     <div class="nav-actions">
-      <a href="#catalogo">Catalogo</a>
+      <a href="#catalogo">Catálogo</a>
       <a href="#proyectos">Proyectos</a>
       <ion-button fill="solid" size="small" class="nav-cta" (click)="quoteRequested.emit()">Cotizar</ion-button>
     </div>
@@ -15,22 +15,37 @@
   <div class="hero-copy">
     <p class="eyebrow">Cortinas y persianas a medida</p>
     <h1>Elegancia y control de luz para tus ambientes.</h1>
-    <p class="hero-text">Cortinas y persianas para hogar y oficina, con asesoria visual, medidas personalizadas y opciones motorizadas.</p>
+    <p class="hero-text">Cortinas y persianas para hogar y oficina, con asesoría visual, medidas personalizadas y opciones motorizadas.</p>
     <div class="hero-actions">
       <ion-button class="primary-button" size="large" (click)="catalogRequested.emit()">
         <ion-icon slot="start" name="albums-outline"></ion-icon>
-        Ver Catalogo
+        Ver Catálogo
       </ion-button>
       <ion-button class="ghost-button" size="large" fill="outline" (click)="quoteRequested.emit()">
         <ion-icon slot="start" name="calculator-outline"></ion-icon>
-        Cotizar
+        Cotizar ahora
       </ion-button>
+    </div>
+
+    <div class="trust-badges" aria-label="Garantías del servicio">
+      <span class="badge-pill">
+        <ion-icon name="shield-checkmark-outline"></ion-icon>
+        Garantía en instalación
+      </span>
+      <span class="badge-pill">
+        <ion-icon name="star-outline"></ion-icon>
+        +500 proyectos
+      </span>
+      <span class="badge-pill">
+        <ion-icon name="flash-outline"></ion-icon>
+        Respuesta en 24 h
+      </span>
     </div>
   </div>
 
-  <div class="hero-panel" aria-label="Resumen de servicio">
-    <span>Instalacion profesional</span>
+  <div class="hero-panel" aria-label="Tiempo estimado de respuesta">
+    <span>Presupuesto estimado</span>
     <strong>48h</strong>
-    <span>respuesta estimada de presupuesto</span>
+    <span>respuesta garantizada</span>
   </div>
 </section>

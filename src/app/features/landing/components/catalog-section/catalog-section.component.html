@@ -6,6 +6,8 @@
       contexto armado.</p>
   </header>
 
+  <hr class="catalog-divider" aria-hidden="true" />
+
   <nav class="catalog-nav" aria-label="Categorías del catálogo">
     <ion-segment [(ngModel)]="selectedCategory" mode="md" scrollable="true" class="catalog-tabs">
       <ion-segment-button *ngFor="let category of catalog" [value]="category.id">

@@ -25,13 +25,14 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+/* Google Fonts – Inter (UI) + Playfair Display (headings) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap');
+
 /**
  * Ionic Dark Mode
- * -----------------------------------------------------
  * For more info, please see:
  * https://ionicframework.com/docs/theming/dark-mode
  */
-
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 /* @import "@ionic/angular/css/palettes/dark.system.css"; */
@@ -41,10 +42,28 @@ html {
 }
 
 body {
-  font-family: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
-  background: #fbfaf8;
+  font-family: 'Inter', Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #fdfbf8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* ── Global heading style (warm editorial feel) ─────────────── */
+h1, h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+/* ── Section divider utility ────────────────────────────────── */
+.section-divider {
+  width: min(120px, 30%);
+  height: 2px;
+  margin: 0 auto 36px;
+  background: linear-gradient(90deg, transparent, var(--demo-gold), transparent);
+  border: none;
 }

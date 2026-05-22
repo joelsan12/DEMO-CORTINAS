@@ -1,0 +1,170 @@
+/* ── App header ──────────────────────────────────────────── */
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(253, 251, 248, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--demo-line-light, #f0ebe2);
+    padding: 0 clamp(16px, 4vw, 40px);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: box-shadow 200ms ease;
+
+    &.scrolled {
+        box-shadow: 0 2px 20px rgba(42, 34, 18, 0.07);
+    }
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ── Brand / Logo ────────────────────────────────────────── */
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+
+    .logo-dot {
+        width: 9px;
+        height: 9px;
+        background: linear-gradient(135deg, var(--demo-gold, #c4913a), var(--demo-gold-dark, #96691e));
+        border-radius: 50%;
+        box-shadow: 0 0 8px rgba(196, 145, 58, 0.4);
+    }
+
+    .logo-text {
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--demo-ink, #1a1714);
+        text-transform: uppercase;
+    }
+}
+
+/* ── Navigation links ────────────────────────────────────── */
+.main-nav {
+    .nav-links {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        text-decoration: none;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--demo-muted, #7a7168);
+        padding: 7px 13px;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
+
+        .nav-icon {
+            font-size: 15px;
+            transition: transform 180ms ease;
+        }
+
+        &:hover {
+            color: var(--demo-ink, #1a1714);
+            background: var(--demo-soft, #f6f1e9);
+            border-color: var(--demo-line, #e8e0d4);
+
+            .nav-icon { transform: scale(1.1); }
+        }
+    }
+
+    /* Cotizar accent link */
+    .accent-link {
+        color: var(--demo-gold-dark, #96691e);
+        background: var(--demo-gold-pale, #f0e2c4);
+        border-color: rgba(196, 145, 58, 0.22);
+        font-weight: 600;
+
+        &:hover {
+            background: var(--demo-gold, #c4913a);
+            border-color: var(--demo-gold, #c4913a);
+            color: #ffffff;
+
+            .nav-icon { transform: scale(1.1); }
+        }
+    }
+}
+
+/* ── WhatsApp contact pill ───────────────────────────────── */
+.contact-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--demo-ink, #1a1714);
+    color: #ffffff;
+    padding: 9px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 12px rgba(26, 23, 20, 0.12);
+    transition: transform 200ms ease, background 200ms ease, box-shadow 200ms ease;
+
+    ion-icon {
+        font-size: 16px;
+    }
+
+    &:hover {
+        transform: translateY(-1px);
+        background: var(--demo-ink-light, #2e2b26);
+        box-shadow: 0 4px 20px rgba(26, 23, 20, 0.18);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .app-header {
+        padding: 0 16px;
+        height: 62px;
+    }
+
+    .main-nav {
+        .nav-links {
+            gap: 4px;
+        }
+
+        .nav-item {
+            font-size: 13px;
+            padding: 6px 10px;
+            gap: 5px;
+
+            span { display: none; }
+        }
+    }
+
+    .contact-pill span {
+        display: none;
+    }
+}

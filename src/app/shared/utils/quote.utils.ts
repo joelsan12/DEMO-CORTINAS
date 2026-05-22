@@ -13,5 +13,5 @@ export function normalizeProductType(type: string): string {
 }
 
 export function formatMeters(value: number): string {
-  return Number(value || 0).toFixed(2);
+  return (value ?? 0).toFixed(2);
 }

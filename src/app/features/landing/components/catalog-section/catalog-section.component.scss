@@ -2,136 +2,211 @@
   display: block;
 }
 
+/* ── Section wrapper ─────────────────────────────────────── */
 .section {
-  padding: clamp(70px, 10vw, 124px) clamp(18px, 4vw, 56px);
+  padding: clamp(80px, 10vw, 128px) clamp(18px, 4vw, 56px);
 }
 
+/* ── Section heading ─────────────────────────────────────── */
 .section-heading {
-  width: min(760px, 100%);
-  margin: 0 auto 34px;
+  width: min(720px, 100%);
+  margin: 0 auto 16px;
   text-align: center;
 }
 
 .eyebrow {
-  margin: 0 0 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
   color: var(--demo-gold);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+
+  &::before,
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--demo-gold);
+    opacity: 0.6;
+  }
 }
 
 .section-heading h2 {
   margin: 0;
   color: var(--demo-ink);
-  font-size: clamp(2rem, 4vw, 4rem);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.8rem);
   font-weight: 800;
-  letter-spacing: 0;
-  line-height: 1.02;
+  line-height: 1.06;
 }
 
 .section-heading p:not(.eyebrow) {
-  max-width: 620px;
+  max-width: 580px;
   margin: 18px auto 0;
   color: var(--demo-muted);
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
+/* ── Thin gold divider ───────────────────────────────────── */
+.catalog-divider {
+  width: 80px;
+  height: 2px;
+  margin: 24px auto 40px;
+  background: linear-gradient(90deg, transparent, var(--demo-gold), transparent);
+  border: none;
+}
+
+/* ── Category tabs ───────────────────────────────────────── */
 .catalog-tabs {
   width: min(980px, 100%);
-  margin: 0 auto 28px;
+  margin: 0 auto 32px;
   padding: 5px;
   border: 1px solid var(--demo-line);
   border-radius: 999px;
   background: #ffffff;
+  box-shadow: var(--shadow-xs);
 }
 
 ion-segment-button {
+  /* Dimensiones y Bordes */
+  min-height: 54px;
   --border-radius: 999px;
-  --indicator-color: var(--demo-ink);
-  --color: var(--demo-muted);
-  --color-checked: #ffffff;
-  min-height: 56px;
   text-transform: none;
+  transition: color var(--t-fast);
+
+  /* Estado Inactivo (Por defecto) */
+  --color: var(--demo-muted);
+  --background: transparent;
+
+  /* Estado Seleccionado (Checked) */
+  /* Forzamos que el fondo de la pastilla activa sea el color oscuro */
+  --background-checked: var(--demo-ink);
+  --color-checked: #ffffff;
+
+  /* Manejo del indicador nativo de Ionic en modo MD */
+  --indicator-color: var(--demo-ink);
+  --indicator-height: 100%;
+  /* Hace que cubra todo el alto como un botón tipo pastilla */
+  --indicator-box-shadow: none;
+  /* Elimina sombras nativas si interfieren */
 }
 
+/* Asegurar que el contenedor de las etiquetas no rompa la herencia */
 ion-segment-button ion-label {
   display: grid;
   gap: 3px;
+  color: inherit;
+  /* Mantiene el color blanco cuando está activo */
+  z-index: 2;
+  /* Lo posiciona por encima del indicador de Ionic */
 }
 
-ion-segment-button span {
-  font-weight: 800;
+.category-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  /* inherit so it picks up --color-checked when checked */
+  color: inherit;
 }
 
-ion-segment-button small {
-  font-size: 0.68rem;
+.category-subtitle {
+  font-size: 0.66rem;
   white-space: normal;
+  font-weight: 500;
+  /* slightly dimmer than parent, using opacity instead of a fixed color */
+  opacity: 0.7;
+  color: inherit;
 }
 
+/* ── Product grid ────────────────────────────────────────── */
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 18px;
   width: min(1120px, 100%);
   margin: 0 auto;
 }
 
+.product-grid ion-row {
+  justify-content: center;
+}
+
+/* ── Product card ────────────────────────────────────────── */
 .product-card {
   overflow: hidden;
-  border: 1px solid var(--demo-line);
-  border-radius: 8px;
+  border: 1px solid var(--demo-line-light);
+  border-radius: 12px;
   background: #ffffff;
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--t-mid), box-shadow var(--t-mid), border-color var(--t-mid);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--demo-gold-pale);
+  }
 }
 
-.product-media {
-  aspect-ratio: 4 / 3;
-  background: var(--demo-soft);
-}
-
-.product-media img {
+.product-image {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
+  transition: transform var(--t-slow);
 }
 
-.product-content {
-  padding: 22px;
+.product-card:hover .product-image {
+  transform: scale(1.04);
 }
 
-.product-content p {
-  margin: 0 0 8px;
-  color: var(--demo-gold-dark);
-  font-size: 0.76rem;
-  font-weight: 800;
+ion-card-header {
+  padding: 18px 20px 8px;
+}
+
+ion-card-subtitle.product-type {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: var(--demo-gold-dark);
+  margin-bottom: 6px;
 }
 
-.product-content h3 {
-  margin: 0;
+ion-card-title.product-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--demo-ink);
-  font-size: 1.25rem;
+  line-height: 1.25;
 }
 
-.product-content span {
-  display: block;
-  min-height: 72px;
-  margin-top: 10px;
+ion-card-content {
+  padding: 0 20px 20px;
+}
+
+.product-description {
   color: var(--demo-muted);
-  line-height: 1.55;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin: 4px 0 0;
 }
 
 .interest-button {
-  --color: var(--demo-ink);
-  margin: 14px 0 0 -12px;
-  font-weight: 800;
+  --color: var(--demo-gold-dark);
+  --color-hover: var(--demo-ink);
+  margin: 12px 0 0 -10px;
+  font-weight: 700;
+  font-size: 0.86rem;
+  letter-spacing: 0.02em;
+  transition: --color var(--t-fast);
 }
 
+/* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 820px) {
   .catalog-tabs {
-    border-radius: 8px;
+    border-radius: 12px;
   }
 
   ion-segment-button {
@@ -142,5 +217,9 @@ ion-segment-button small {
 @media (max-width: 480px) {
   .section {
     padding-inline: 14px;
+  }
+
+  .catalog-tabs {
+    border-radius: 10px;
   }
 }

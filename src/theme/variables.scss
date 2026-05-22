@@ -1,18 +1,42 @@
 :root {
-  --demo-ink: #171614;
-  --demo-muted: #6d6a63;
-  --demo-line: #e7e1d8;
-  --demo-paper: #fbfaf8;
-  --demo-soft: #f4f1ec;
-  --demo-gold: #b9955b;
-  --demo-gold-dark: #8a6c3b;
-  --ion-font-family: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
-  --ion-color-primary: #171614;
-  --ion-color-primary-rgb: 23, 22, 20;
-  --ion-color-primary-contrast: #ffffff;
+  /* ── Core palette ──────────────────────────────────────── */
+  --demo-ink:        #1a1714;
+  --demo-ink-light:  #2e2b26;
+  --demo-muted:      #7a7168;
+  --demo-muted-warm: #9e9185;
+  --demo-line:       #e8e0d4;
+  --demo-line-light: #f0ebe2;
+  --demo-paper:      #fdfbf8;
+  --demo-soft:       #f6f1e9;
+  --demo-cream:      #faf6ef;
+
+  /* ── Gold accent ───────────────────────────────────────── */
+  --demo-gold:       #c4913a;
+  --demo-gold-light: #d4a855;
+  --demo-gold-pale:  #f0e2c4;
+  --demo-gold-dark:  #96691e;
+
+  /* ── Shadows ───────────────────────────────────────────── */
+  --shadow-xs:  0 1px 3px rgba(42, 34, 18, 0.06);
+  --shadow-sm:  0 4px 14px rgba(42, 34, 18, 0.08);
+  --shadow-md:  0 10px 32px rgba(42, 34, 18, 0.11);
+  --shadow-lg:  0 24px 64px rgba(42, 34, 18, 0.14);
+  --shadow-gold:0 6px 20px rgba(196, 145, 58, 0.22);
+
+  /* ── Transitions ───────────────────────────────────────── */
+  --ease-warm: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --t-fast:    160ms var(--ease-warm);
+  --t-mid:     260ms var(--ease-warm);
+  --t-slow:    420ms var(--ease-warm);
+
+  /* ── Ionic overrides ───────────────────────────────────── */
+  --ion-font-family: 'Inter', Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ion-color-primary:              #1a1714;
+  --ion-color-primary-rgb:          26, 23, 20;
+  --ion-color-primary-contrast:     #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #141311;
-  --ion-color-primary-tint: #2e2d2b;
-  --ion-background-color: #fbfaf8;
-  --ion-text-color: #171614;
+  --ion-color-primary-shade:        #141210;
+  --ion-color-primary-tint:         #2e2b26;
+  --ion-background-color:           #fdfbf8;
+  --ion-text-color:                 #1a1714;
 }

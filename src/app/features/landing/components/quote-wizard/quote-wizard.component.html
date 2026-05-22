@@ -1,4 +1,4 @@
-<section id="cotizador" class="section quote-section">
+<section id="cotizador" class="section quote-section" *ngIf="quoteForm" [formGroup]="quoteForm">
   <div class="section-heading compact">
     <p class="eyebrow">Cotizacion guiada</p>
     <h2>Un lead listo para cerrar por WhatsApp.</h2>
@@ -9,7 +9,8 @@
       <span class="step-number">01</span>
       <h3>Tipo de cortina</h3>
       <div class="option-grid">
-        <button type="button" class="choice" *ngFor="let option of curtainTypes" [class.active]="selectedType === option.id" (click)="selectedType = option.id">
+        <button type="button" class="choice" *ngFor="let option of curtainTypes"
+          [class.active]="formValues.curtainType === option.id" (click)="setControlValue('curtainType', option.id)">
           <ion-icon [name]="option.icon"></ion-icon>
           <span>{{ option.label }}</span>
         </button>
@@ -20,7 +21,8 @@
       <span class="step-number">02</span>
       <h3>Ambiente</h3>
       <div class="option-grid">
-        <button type="button" class="choice" *ngFor="let option of environments" [class.active]="selectedEnvironment === option.id" (click)="selectedEnvironment = option.id">
+        <button type="button" class="choice" *ngFor="let option of environments"
+          [class.active]="formValues.environment === option.id" (click)="setControlValue('environment', option.id)">
           <ion-icon [name]="option.icon"></ion-icon>
           <span>{{ option.label }}</span>
         </button>
@@ -33,11 +35,11 @@
       <div class="measure-grid">
         <ion-item lines="none">
           <ion-label position="stacked">Ancho en metros</ion-label>
-          <ion-input type="number" inputmode="decimal" min="0.4" step="0.05" [(ngModel)]="width"></ion-input>
+          <ion-input type="number" inputmode="decimal" min="0.4" step="0.05" formControlName="width"></ion-input>
         </ion-item>
         <ion-item lines="none">
           <ion-label position="stacked">Alto en metros</ion-label>
-          <ion-input type="number" inputmode="decimal" min="0.4" step="0.05" [(ngModel)]="height"></ion-input>
+          <ion-input type="number" inputmode="decimal" min="0.4" step="0.05" formControlName="height"></ion-input>
         </ion-item>
       </div>
     </div>
@@ -45,8 +47,16 @@
     <div class="wizard-step final-step">
       <span class="step-number">04</span>
       <h3>Enviar presupuesto</h3>
-      <p class="lead-preview">Hola, me interesa una cotizacion para una cortina {{ selectedType }} para {{ selectedEnvironment }}, medidas aprox: {{ width | number:'1.2-2' }}m x {{ height | number:'1.2-2' }}m. Vi este modelo en su web: {{ selectedProduct }}.</p>
-      <a class="whatsapp-button" [href]="whatsappUrl" target="_blank" rel="noopener noreferrer">
+
+      <p class="lead-preview">
+        Hola, me interesa una cotizacion para una cortina {{ formValues.curtainType }} para {{ formValues.environment
+        }},
+        medidas aprox: {{ formValues.width | number:'1.2-2' }}m x {{ formValues.height | number:'1.2-2' }}m.
+        Vi este modelo en su web: {{ selectedProduct }}.
+      </p>
+
+      <a class="whatsapp-button" [href]="whatsappUrl" [class.disabled]="quoteForm.invalid" target="_blank"
+        rel="noopener noreferrer">
         <ion-icon name="logo-whatsapp"></ion-icon>
         Enviar a WhatsApp para Presupuesto
       </a>
